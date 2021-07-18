@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Fokontany{% endblock %}
+
+{% block body %}
+    <h1>Create new Fokontany</h1>
+
+    {{ include('fokontany/_form.html.twig') }}
+
+    <a href="{{ path('fokontany_index') }}">back to list</a>
+{% endblock %}
