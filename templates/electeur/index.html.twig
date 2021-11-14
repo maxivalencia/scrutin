@@ -31,5 +31,9 @@
         </tbody>
     </table>
 
+    <div class="navigation">
+        {{ knp_pagination_render(electeurs) }}
+    </div>
+
     <a href="{{ path('electeur_new') }}">Create new</a>
 {% endblock %}

@@ -13,7 +13,7 @@ class ResultatType extends AbstractType
     {
         $builder
             ->add('nombre')
-            ->add('CreatedAt')
+            //->add('CreatedAt')
             ->add('bureau')
             ->add('candidat')
             ->add('tour')

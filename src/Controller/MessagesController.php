@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/messages")
@@ -18,10 +19,15 @@ class MessagesController extends AbstractController
     /**
      * @Route("/", name="messages_index", methods={"GET"})
      */
-    public function index(MessagesRepository $messagesRepository): Response
+    public function index(Request $request, MessagesRepository $messagesRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $messagesRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            50/*limit per page*/
+        );
         return $this->render('messages/index.html.twig', [
-            'messages' => $messagesRepository->findAll(),
+            'messages' => $pagination,
         ]);
     }
 

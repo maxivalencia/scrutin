@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/session")
@@ -18,10 +19,15 @@ class SessionController extends AbstractController
     /**
      * @Route("/", name="session_index", methods={"GET"})
      */
-    public function index(SessionRepository $sessionRepository): Response
+    public function index(Request $request, SessionRepository $sessionRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $sessionRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
         return $this->render('session/index.html.twig', [
-            'sessions' => $sessionRepository->findAll(),
+            'sessions' => $pagination,
         ]);
     }
 

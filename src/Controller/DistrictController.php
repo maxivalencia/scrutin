@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/district")
@@ -18,10 +19,15 @@ class DistrictController extends AbstractController
     /**
      * @Route("/", name="district_index", methods={"GET"})
      */
-    public function index(DistrictRepository $districtRepository): Response
+    public function index(Request $request, DistrictRepository $districtRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $districtRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            50/*limit per page*/
+        );
         return $this->render('district/index.html.twig', [
-            'districts' => $districtRepository->findAll(),
+            'districts' => $pagination,
         ]);
     }
 

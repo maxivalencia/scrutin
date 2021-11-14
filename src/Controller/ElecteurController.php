@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/electeur")
@@ -18,10 +19,15 @@ class ElecteurController extends AbstractController
     /**
      * @Route("/", name="electeur_index", methods={"GET"})
      */
-    public function index(ElecteurRepository $electeurRepository): Response
+    public function index(Request $request, ElecteurRepository $electeurRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $electeurRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            50/*limit per page*/
+        );
         return $this->render('electeur/index.html.twig', [
-            'electeurs' => $electeurRepository->findAll(),
+            'electeurs' => $pagination,
         ]);
     }
 

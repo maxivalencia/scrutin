@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/bureau")
@@ -18,10 +19,15 @@ class BureauController extends AbstractController
     /**
      * @Route("/", name="bureau_index", methods={"GET"})
      */
-    public function index(BureauRepository $bureauRepository): Response
+    public function index(Request $request, BureauRepository $bureauRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $bureauRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            50/*limit per page*/
+        );
         return $this->render('bureau/index.html.twig', [
-            'bureaus' => $bureauRepository->findAll(),
+            'bureaus' => $pagination,
         ]);
     }
 

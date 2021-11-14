@@ -98,4 +98,13 @@ class Region
 
         return $this;
     }
+
+    /**
+    * toString
+    * @return string
+    */
+    public function __toString()
+    {
+        return $this->getRegion();
+    }
 }

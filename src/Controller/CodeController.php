@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/code")
@@ -18,10 +19,15 @@ class CodeController extends AbstractController
     /**
      * @Route("/", name="code_index", methods={"GET"})
      */
-    public function index(CodeRepository $codeRepository): Response
+    public function index(Request $request, CodeRepository $codeRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $codeRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
         return $this->render('code/index.html.twig', [
-            'codes' => $codeRepository->findAll(),
+            'codes' => $pagination,
         ]);
     }
 

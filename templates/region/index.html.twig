@@ -31,5 +31,9 @@
         </tbody>
     </table>
 
+    <div class="navigation">
+        {{ knp_pagination_render(regions) }}
+    </div>
+
     <a href="{{ path('region_new') }}">Create new</a>
 {% endblock %}

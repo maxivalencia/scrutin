@@ -15,7 +15,7 @@ class CandidatType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('photo')
-            ->add('CreatedAt')
+            //->add('CreatedAt')
         ;
     }
 

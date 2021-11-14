@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/fokontany")
@@ -18,10 +19,15 @@ class FokontanyController extends AbstractController
     /**
      * @Route("/", name="fokontany_index", methods={"GET"})
      */
-    public function index(FokontanyRepository $fokontanyRepository): Response
+    public function index(Request $request, FokontanyRepository $fokontanyRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $fokontanyRepository->findBy([], ["id" => "DESC"]), /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            50/*limit per page*/
+        );
         return $this->render('fokontany/index.html.twig', [
-            'fokontanies' => $fokontanyRepository->findAll(),
+            'fokontanies' => $pagination,
         ]);
     }
 
