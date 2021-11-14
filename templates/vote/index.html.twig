@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vote index{% endblock %}
+{% block title %}Liste des type de vote{% endblock %}
 
 {% block body %}
-    <h1>Vote index</h1>
+    <h1>Liste des type de vote</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ vote.id }}</td>
                 <td>{{ vote.type }}</td>
                 <td>
-                    <a href="{{ path('vote_show', {'id': vote.id}) }}">show</a>
+                    <a href="{{ path('vote_show', {'id': vote.id}) }}">voir</a>
                     <a href="{{ path('vote_edit', {'id': vote.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(votes) }}
     </div>
 
-    <a href="{{ path('vote_new') }}">Create new</a>
+    <a href="{{ path('vote_new') }}">Ajouter</a>
 {% endblock %}

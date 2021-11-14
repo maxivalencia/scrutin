@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Province{% endblock %}
+{% block title %}Modification Province{% endblock %}
 
 {% block body %}
-    <h1>Edit Province</h1>
+    <h1>Modification Province</h1>
 
-    {{ include('province/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('province/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('province_index') }}">back to list</a>
+    <a href="{{ path('province_index') }}">Retour</a>
 
     {{ include('province/_delete_form.html.twig') }}
 {% endblock %}

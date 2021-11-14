@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Electeur index{% endblock %}
+{% block title %}Liste des nombres d'electeurs{% endblock %}
 
 {% block body %}
-    <h1>Electeur index</h1>
+    <h1>Liste des nombres d'electeurs</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ electeur.id }}</td>
                 <td>{{ electeur.electeur }}</td>
                 <td>
-                    <a href="{{ path('electeur_show', {'id': electeur.id}) }}">show</a>
+                    <a href="{{ path('electeur_show', {'id': electeur.id}) }}">voir</a>
                     <a href="{{ path('electeur_edit', {'id': electeur.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(electeurs) }}
     </div>
 
-    <a href="{{ path('electeur_new') }}">Create new</a>
+    <a href="{{ path('electeur_new') }}">Ajouter</a>
 {% endblock %}

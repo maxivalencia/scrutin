@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Resultat index{% endblock %}
+{% block title %}Liste des résultats{% endblock %}
 
 {% block body %}
-    <h1>Resultat index</h1>
+    <h1>Liste des résultats</h1>
 
     <table class="table">
         <thead>
@@ -21,13 +21,13 @@
                 <td>{{ resultat.nombre }}</td>
                 <td>{{ resultat.CreatedAt ? resultat.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('resultat_show', {'id': resultat.id}) }}">show</a>
+                    <a href="{{ path('resultat_show', {'id': resultat.id}) }}">voir</a>
                     <a href="{{ path('resultat_edit', {'id': resultat.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -37,5 +37,5 @@
         {{ knp_pagination_render(resultats) }}
     </div>
 
-    <a href="{{ path('resultat_new') }}">Create new</a>
+    <a href="{{ path('resultat_new') }}">Ajouter</a>
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Fokontany{% endblock %}
+{% block title %}Modification fokontany{% endblock %}
 
 {% block body %}
-    <h1>Edit Fokontany</h1>
+    <h1>Modification fokontany</h1>
 
-    {{ include('fokontany/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('fokontany/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('fokontany_index') }}">back to list</a>
+    <a href="{{ path('fokontany_index') }}">Retour</a>
 
     {{ include('fokontany/_delete_form.html.twig') }}
 {% endblock %}

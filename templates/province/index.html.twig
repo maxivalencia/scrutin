@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Province index{% endblock %}
+{% block title %}Liste des Provinces{% endblock %}
 
 {% block body %}
-    <h1>Province index</h1>
+    <h1>Liste des Provinces</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ province.id }}</td>
                 <td>{{ province.province }}</td>
                 <td>
-                    <a href="{{ path('province_show', {'id': province.id}) }}">show</a>
+                    <a href="{{ path('province_show', {'id': province.id}) }}">voir</a>
                     <a href="{{ path('province_edit', {'id': province.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(provinces) }}
     </div>
 
-    <a href="{{ path('province_new') }}">Create new</a>
+    <a href="{{ path('province_new') }}">Ajouter</a>
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Code{% endblock %}
+{% block title %}Modification code{% endblock %}
 
 {% block body %}
-    <h1>Edit Code</h1>
+    <h1>Modification code</h1>
 
-    {{ include('code/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('code/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('code_index') }}">back to list</a>
+    <a href="{{ path('code_index') }}">Retour</a>
 
     {{ include('code/_delete_form.html.twig') }}
 {% endblock %}

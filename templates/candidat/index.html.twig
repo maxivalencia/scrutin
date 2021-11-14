@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Candidat index{% endblock %}
+{% block title %}Liste des candidats{% endblock %}
 
 {% block body %}
-    <h1>Candidat index</h1>
+    <h1>Liste des candidats</h1>
 
     <table class="table">
         <thead>
@@ -25,13 +25,13 @@
                 <td>{{ candidat.photo }}</td>
                 <td>{{ candidat.CreatedAt ? candidat.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('candidat_show', {'id': candidat.id}) }}">show</a>
+                    <a href="{{ path('candidat_show', {'id': candidat.id}) }}">voir</a>
                     <a href="{{ path('candidat_edit', {'id': candidat.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -41,5 +41,5 @@
         {{ knp_pagination_render(candidats) }}
     </div>
 
-    <a href="{{ path('candidat_new') }}">Create new</a>
+    <a href="{{ path('candidat_new') }}">Ajouter</a>
 {% endblock %}

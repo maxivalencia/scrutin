@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Tour{% endblock %}
+{% block title %}Modification Tour{% endblock %}
 
 {% block body %}
-    <h1>Edit Tour</h1>
+    <h1>Modification Tour</h1>
 
-    {{ include('tour/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('tour/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('tour_index') }}">back to list</a>
+    <a href="{{ path('tour_index') }}">Retour</a>
 
     {{ include('tour/_delete_form.html.twig') }}
 {% endblock %}

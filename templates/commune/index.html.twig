@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Commune index{% endblock %}
+{% block title %}Liste des communes{% endblock %}
 
 {% block body %}
-    <h1>Commune index</h1>
+    <h1>Liste des communes</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ commune.id }}</td>
                 <td>{{ commune.commune }}</td>
                 <td>
-                    <a href="{{ path('commune_show', {'id': commune.id}) }}">show</a>
+                    <a href="{{ path('commune_show', {'id': commune.id}) }}">voir</a>
                     <a href="{{ path('commune_edit', {'id': commune.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(communes) }}
     </div>
 
-    <a href="{{ path('commune_new') }}">Create new</a>
+    <a href="{{ path('commune_new') }}">Ajouter</a>
 {% endblock %}

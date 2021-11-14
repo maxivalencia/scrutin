@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('district_index') }}">back to list</a>
+    <a href="{{ path('district_index') }}">Retour</a>
 
-    <a href="{{ path('district_edit', {'id': district.id}) }}">edit</a>
+    <a href="{{ path('district_edit', {'id': district.id}) }}">Modification</a>
 
     {{ include('district/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Bureau{% endblock %}
+{% block title %}Modification Bureau{% endblock %}
 
 {% block body %}
-    <h1>Edit Bureau</h1>
+    <h1>Modification bureau de vote</h1>
 
-    {{ include('bureau/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('bureau/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('bureau_index') }}">back to list</a>
+    <a href="{{ path('bureau_index') }}">Retour</a>
 
     {{ include('bureau/_delete_form.html.twig') }}
 {% endblock %}

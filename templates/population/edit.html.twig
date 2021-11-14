@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Population{% endblock %}
+{% block title %}Modification densité de population{% endblock %}
 
 {% block body %}
-    <h1>Edit Population</h1>
+    <h1>Modification densité de population</h1>
 
-    {{ include('population/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('population/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('population_index') }}">back to list</a>
+    <a href="{{ path('population_index') }}">Retour</a>
 
     {{ include('population/_delete_form.html.twig') }}
 {% endblock %}

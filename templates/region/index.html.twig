@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Region index{% endblock %}
+{% block title %}Liste des Regions{% endblock %}
 
 {% block body %}
-    <h1>Region index</h1>
+    <h1>Liste de Regions</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ region.id }}</td>
                 <td>{{ region.region }}</td>
                 <td>
-                    <a href="{{ path('region_show', {'id': region.id}) }}">show</a>
+                    <a href="{{ path('region_show', {'id': region.id}) }}">voir</a>
                     <a href="{{ path('region_edit', {'id': region.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(regions) }}
     </div>
 
-    <a href="{{ path('region_new') }}">Create new</a>
+    <a href="{{ path('region_new') }}">Ajouter</a>
 {% endblock %}

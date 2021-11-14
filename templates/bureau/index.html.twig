@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bureau index{% endblock %}
+{% block title %}Liste des bureaux de vote{% endblock %}
 
 {% block body %}
-    <h1>Bureau index</h1>
+    <h1>Liste des bureaux de vote</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ bureau.id }}</td>
                 <td>{{ bureau.bureau }}</td>
                 <td>
-                    <a href="{{ path('bureau_show', {'id': bureau.id}) }}">show</a>
+                    <a href="{{ path('bureau_show', {'id': bureau.id}) }}">voir</a>
                     <a href="{{ path('bureau_edit', {'id': bureau.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(bureaus) }}
     </div>
 
-    <a href="{{ path('bureau_new') }}">Create new</a>
+    <a href="{{ path('bureau_new') }}">Ajouter</a>
 {% endblock %}

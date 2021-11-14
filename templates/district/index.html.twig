@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}District index{% endblock %}
+{% block title %}Liste des Districts{% endblock %}
 
 {% block body %}
-    <h1>District index</h1>
+    <h1>Liste des Districts</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ district.id }}</td>
                 <td>{{ district.district }}</td>
                 <td>
-                    <a href="{{ path('district_show', {'id': district.id}) }}">show</a>
+                    <a href="{{ path('district_show', {'id': district.id}) }}">voir</a>
                     <a href="{{ path('district_edit', {'id': district.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(districts) }}
     </div>
 
-    <a href="{{ path('district_new') }}">Create new</a>
+    <a href="{{ path('district_new') }}">Ajouter</a>
 {% endblock %}

@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('vote_index') }}">back to list</a>
+    <a href="{{ path('vote_index') }}">Retour</a>
 
-    <a href="{{ path('vote_edit', {'id': vote.id}) }}">edit</a>
+    <a href="{{ path('vote_edit', {'id': vote.id}) }}">Modification</a>
 
     {{ include('vote/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Bureau{% endblock %}
+{% block title %}Nouveau bureau de vote{% endblock %}
 
 {% block body %}
-    <h1>Create new Bureau</h1>
+    <h1>Nouveau bureau de vote</h1>
 
     {{ include('bureau/_form.html.twig') }}
 
-    <a href="{{ path('bureau_index') }}">back to list</a>
+    <a href="{{ path('bureau_index') }}">Retour</a>
 {% endblock %}

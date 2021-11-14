@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tour index{% endblock %}
+{% block title %}Liste des tours{% endblock %}
 
 {% block body %}
-    <h1>Tour index</h1>
+    <h1>Liste des tours</h1>
 
     <table class="table">
         <thead>
@@ -19,13 +19,13 @@
                 <td>{{ tour.id }}</td>
                 <td>{{ tour.tour }}</td>
                 <td>
-                    <a href="{{ path('tour_show', {'id': tour.id}) }}">show</a>
+                    <a href="{{ path('tour_show', {'id': tour.id}) }}">voir</a>
                     <a href="{{ path('tour_edit', {'id': tour.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -35,5 +35,5 @@
         {{ knp_pagination_render(tours) }}
     </div>
 
-    <a href="{{ path('tour_new') }}">Create new</a>
+    <a href="{{ path('tour_new') }}">Ajouter</a>
 {% endblock %}
