@@ -47,12 +47,12 @@ class Bureau
 
     public function getBureau(): ?string
     {
-        return $this->bureau;
+        return strtoupper($this->bureau);
     }
 
     public function setBureau(string $bureau): self
     {
-        $this->bureau = $bureau;
+        $this->bureau = strtoupper($bureau);
 
         return $this;
     }

@@ -47,12 +47,12 @@ class Region
 
     public function getRegion(): ?string
     {
-        return $this->region;
+        return strtoupper($this->region);
     }
 
     public function setRegion(string $region): self
     {
-        $this->region = $region;
+        $this->region = strtoupper($region);
 
         return $this;
     }

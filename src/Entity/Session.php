@@ -87,6 +87,6 @@ class Session
     */
     public function __toString()
     {
-        return $this->getDate();
+        return date_format($this->getDate(), "d/m/Y");
     }
 }

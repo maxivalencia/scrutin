@@ -53,12 +53,12 @@ class Commune
 
     public function getCommune(): ?string
     {
-        return $this->commune;
+        return strtoupper($this->commune);
     }
 
     public function setCommune(string $commune): self
     {
-        $this->commune = $commune;
+        $this->commune = strtoupper($commune);
 
         return $this;
     }

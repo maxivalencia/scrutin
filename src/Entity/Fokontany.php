@@ -53,12 +53,12 @@ class Fokontany
 
     public function getFokontany(): ?string
     {
-        return $this->fokontany;
+        return strtoupper($this->fokontany);
     }
 
     public function setFokontany(string $fokontany): self
     {
-        $this->fokontany = $fokontany;
+        $this->fokontany = strtoupper($fokontany);
 
         return $this;
     }
