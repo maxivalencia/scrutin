@@ -10,7 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Knp\Component\Pager\PaginatorInterface;
+use DateTimeZone;
 
 /**
  * @Route("/user")
@@ -54,6 +56,8 @@ class UserController extends AbstractController
                 $user,
                 $user->getPassword()
             ));
+            //$user->setCreatedAt(new \DateTime('@'.strtotime('now')));
+            $user->setCreatedAt(new \DateTimeImmutable());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();

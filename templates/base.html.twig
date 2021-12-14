@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Voix du peuple {% block title %}Accueil{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="/dist/images/logo.png" />
+        <link rel="icon" type="image/x-icon" href="/images/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Font Awesome -->
         <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
@@ -54,12 +54,12 @@
                 {% if is_granted("ROLE_USER") %}
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            {% set pht = '' %}
+                           {#  {% set pht = '' %}
                             {% for photo in app.user.utilisateur.photos %}  
                                 {% set pht = photo %}
                             {% endfor %}                                
                                 <img src="/photos/{{ pht }}" width="45px" height="45px" alt="{{ app.user.utilisateur }}" class="brand-image img-circle elevation-3" style="opacity: .8">
-                            {# {{ app.user.utilisateur.photos.photo }} #} {{ app.user.utilisateur }} &nbsp;
+                             #}{# {{ app.user.utilisateur.photos.photo }} #} {# {{ app.user.utilisateur }} &nbsp; #}
                         </li>
                         <li>
                             <a href="{{ path('app_logout') }}" class="btn btn-light"> <i class="fas fa-sign-out-alt"></i> Déconnexion</a>
@@ -71,7 +71,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="#" class="brand-link">
-                <img src="/dist/images/logo.png" alt="Logo" class="brand-image img-circle elevation-3"
+                <img src="/images/logo.png" alt="Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                 <span class="brand-text font-weight-light">VOIX DU PEUPLE</span>
                 </a>
@@ -81,15 +81,15 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        {% if is_granted("ROLE_USER") %}
+                        {# {% if is_granted("ROLE_USER") %}
                             {% set pht = '' %}
                             {% for photo in app.user.utilisateur.photos %}  
                                 {% set pht = photo %}
                             {% endfor %}                              
                                 <img src="/photos/{{ pht }}" width="40px" height="40px" alt="{{ app.user.utilisateur }}" class="brand-image img-circle elevation-3" style="opacity: .8">
-                        {% else %}
+                        {% else %} #}
                             <img src="/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
-                        {% endif %} 
+                        {# {% endif %}  #}
                     </div>
                     <div class="info" width="250px">
                         <a href="#" class="d-block">
@@ -213,6 +213,14 @@
                                             <i class="nav-icon far fa-image"></i>
                                             <p>
                                                 Type de vote
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('candidat_index') }}" class="nav-link">
+                                            <i class="nav-icon far fa-image"></i>
+                                            <p>
+                                                Candidat
                                             </p>
                                         </a>
                                     </li>
