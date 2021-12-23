@@ -26,6 +26,47 @@ use App\Repository\VoteRepository;
 class DashboardController extends AbstractController
 {
     /**
+     * @Route("/resultatcandidat", name="resultatcandidat")
+     */
+    public function resultatCandidat():Response
+    {
+        //$resultat;
+        return $this->render('dashboard/resultatcandidat.html.twig');
+    }
+
+    /**
+     * @Route("/resultatprovince", name="resultatprovince")
+     */
+    public function resultatProvince():Response
+    {
+        return $this->render('dashboard/resultatprovince.html.twig');
+    }
+
+    /**
+     * @Route("/resultatregion", name="resultatregion")
+     */
+    public function resultatRegion():Response
+    {
+        return $this->render('dashboard/resultatregion.html.twig');
+    }
+
+    /**
+     * @Route("/resultatdistrict", name="resultatdistrict")
+     */
+    public function resultatDistrict():Response
+    {
+        return $this->render('dashboard/resultatdistrict.html.twig');
+    }
+
+    /**
+     * @Route("/resultatcommune", name="resultatcommune")
+     */
+    public function resultatCommune():Response
+    {
+        return $this->render('dashboard/resultatcommune.html.twig');
+    }
+
+    /**
      * @Route("/dashboard", name="dashboard")
      */
     public function index(BureauRepository $bureauRepository, CandidatRepository $candidatRepository, CodeRepository $codeRepository, CommuneRepository $communeRepository, DistrictRepository $districtRepository, ElecteurRepository $electeurRepository, FokontanyRepository $fokontanyRepository, MessagesRepository $messagesRepository, ModeRepository $modeRepository, PopulationRepository $populationRepository, ProvinceRepository $provinceRepository, RegionRepository $regionRepository, ResultatRepository $resultatRepository, SessionRepository $sessionRepository, TourRepository $tourRepository, UserRepository $userRepository, VoteRepository $voteRepository): Response
@@ -50,7 +91,7 @@ class DashboardController extends AbstractController
 
         // récupération du nombre de candidat
         $candidats = $candidatRepository->findAll();
-        $candidatCount = 0;
+        $candidatCount = -2;
         foreach ($candidats as $candidat) {
             # code...
             $candidatCount = $candidatCount + 1;

@@ -109,7 +109,7 @@
                             with font-awesome or any other icon font library -->
                         {# {% if is_granted("ROLE_USER") %} #}
                             <li class="nav-item has-treeview menu-open">
-                                <a href="{# {{ path('dash_board') }} #}" class="nav-link active">
+                                <a href="{{ path('dashboard') }}" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -118,6 +118,59 @@
                                 </a>                        
                             </li>
                         {# {% endif %} #}
+                        {# {% if is_granted('ROLE_USER') %} #}
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        STATISTIQUE DES RESULTATS
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ path('resultatcandidat') }}" class="nav-link">
+                                            <i class="nav-icon far fa-calendar-alt"></i>
+                                            <p>
+                                                Résultat par candidat
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('resultatprovince') }}" class="nav-link">
+                                            <i class="nav-icon far fa-calendar-alt"></i>
+                                            <p>
+                                                Résultat par province
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('resultatregion') }}" class="nav-link">
+                                            <i class="nav-icon far fa-calendar-alt"></i>
+                                            <p>
+                                                Résultat par région
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('resultatdistrict') }}" class="nav-link">
+                                            <i class="nav-icon far fa-calendar-alt"></i>
+                                            <p>
+                                                Résultat par district
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ path('resultatcommune') }}" class="nav-link">
+                                            <i class="nav-icon far fa-calendar-alt"></i>
+                                            <p>
+                                                Résultat par commune
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {# {% endif %}  #} 
                         {# {% if is_granted('ROLE_ADMIN') %} #}
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
@@ -303,7 +356,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        {# {% endif %}  #}                   
+                        {# {% endif %}  #}                  
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
